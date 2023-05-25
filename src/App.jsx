@@ -1,10 +1,14 @@
-function App() {
-  const saludar = () => {
-    console.log("Hola, como estas? Bienvenido");
-  };
+import {Footer} from "./Footer.jsx";
+import { Home } from "./Home.jsx";
+import { Navbar } from "./Navbar.jsx";
 
+function App() {
   return (
-  <button onClick={saludar}>saludar</button>
+    <>
+      <Navbar />
+      <Home/>
+      <Footer/>
+    </>
   );
 }
 
