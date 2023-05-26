@@ -1,12 +1,17 @@
-import {Footer} from "./Footer.jsx";
-import { Home } from "./Home.jsx";
-import { Navbar } from "./Navbar.jsx";
+import { Footer } from "./components/layout/Footer.jsx";
+import { Navbar } from "./components/layout/Navbar.jsx";
+import { ProductsList } from "./components/page/itemListContainer/ItemListContainer.jsx";
+
+
 
 function App() {
+  
+  let nombre = "Claudia";
+
   return (
     <>
       <Navbar />
-      <Home/>
+      <ProductsList nombre={nombre}/>
       <Footer/>
     </>
   );

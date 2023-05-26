@@ -1,0 +1,8 @@
+.icono{
+  position: relative;
+}
+.conteo{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
