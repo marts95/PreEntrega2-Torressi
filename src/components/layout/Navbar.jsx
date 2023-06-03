@@ -4,7 +4,11 @@ import "./Navbar.css";
 export const Navbar = () => {
   return (
     <div className="navbar">
-      <h3 className="logo">Panadería <br></br>Sánchez</h3>
+      <img
+        src="../../../LogoBlancoSF.png"
+        alt=""
+        style={{ width: "90px" }}
+      />
       <ul className="lista">
         <li>Inicio</li>
         <li>Reseñas</li>

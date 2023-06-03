@@ -1,8 +1,10 @@
-.icono{
+.icono {
+  display: flex;
   position: relative;
 }
-.conteo{
-    position: absolute;
-    top: 10px;
-    left: 10px;
+.conteo {
+  display: flex;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
