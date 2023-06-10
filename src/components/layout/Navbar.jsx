@@ -1,21 +1,24 @@
-import { CartWidget } from "../common/CartWidget/CartWidget";
+import { Badge } from "@mui/material";
 import "./Navbar.css";
+import {BsCart4} from "react-icons/bs"
 
 export const Navbar = () => {
   return (
     <div className="navbar">
       <img
-        src="../../../LogoBlancoSF.png"
+        src="https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142071/Panader%C3%ADa%20S%C3%A1nchez/LogoBlancoSF_r8auqm.png"
         alt=""
         style={{ width: "90px" }}
       />
       <ul className="lista">
-        <li>Inicio</li>
-        <li>Reseñas</li>
-        <li>Tienda</li>
-        <li>Contacto</li>
+        <li>Todos los productos</li>
+        <li>Salado</li>
+        <li>Dulce</li>
+        <li>Especialidad</li>
       </ul>
-      <CartWidget />
+      <Badge color="secondary" badgeContent={10} max={9}>
+        <BsCart4 />
+      </Badge>
     </div>
   );
 };

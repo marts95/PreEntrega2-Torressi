@@ -7,7 +7,7 @@ export const productos = [
     description:
       "Gran variedad de facturas de crema pastelera, dulce de membrillo y dulce de leche con y sin decoraciones",
     category: "dulce",
-    img: "../public/facturastodas.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142069/Panader%C3%ADa%20S%C3%A1nchez/facturastodas_povmah.jpg",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ export const productos = [
     stock: 10,
     description: "Variedad de tortas disponibles y se realizan por encargue.",
     category: "dulce",
-    img: "../public/tortas.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142072/Panader%C3%ADa%20S%C3%A1nchez/tortas_rqv2aj.jpg",
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ export const productos = [
     stock: 25,
     description: "Alfajores de dulce de leche tipo marplatenses y de maicena",
     category: "dulce",
-    img: "../public/alfajorescuadrado.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142068/Panader%C3%ADa%20S%C3%A1nchez/alfajorescuadrado_zbc1bj.jpg",
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ export const productos = [
     stock: 8,
     description: "Con y sin baño de chocoloate negro",
     category: "dulce",
-    img: "../public/cupckaes_choc.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142068/Panader%C3%ADa%20S%C3%A1nchez/cupcakes_choc_aaioeb.jpg",
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ export const productos = [
     stock: 14,
     description: "Con dulce de membrillo de la mejor calidad",
     category: "dulce",
-    img: "../public/pepitas.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142071/Panader%C3%ADa%20S%C3%A1nchez/pepitas_lfs6wt.jpg",
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ export const productos = [
     stock: 6,
     description: "Con relleno de dulce de leche",
     category: "dulce",
-    img: "../public/cañoncitos.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142068/Panader%C3%ADa%20S%C3%A1nchez/ca%C3%B1oncitos_aiqs19.jpg",
   },
   {
     id: 7,
@@ -62,7 +62,7 @@ export const productos = [
     description:
       "Gran variedad de galletas, entre ellas, galletas con chips de chocolate",
     category: "dulce",
-    img: "../public/galel_chips_choc.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142070/Panader%C3%ADa%20S%C3%A1nchez/galle_chips_choc_einnte.jpg",
   },
   {
     id: 8,
@@ -71,7 +71,7 @@ export const productos = [
     stock: 15,
     description: "Los clásicos redonditos o cuadraditos hojaldrados",
     category: "dulce",
-    img: "../public/bizcosalados.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142068/Panader%C3%ADa%20S%C3%A1nchez/bizcosalados_y2fkoc.jpg",
   },
   {
     id: 9,
@@ -80,7 +80,7 @@ export const productos = [
     stock: 12,
     description: "No apto para vegetarianos",
     category: "salado",
-    img: "../public/chipaquitos.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142069/Panader%C3%ADa%20S%C3%A1nchez/chipaquitos_t3j6kc.jpg",
   },
   {
     id: 10,
@@ -89,7 +89,7 @@ export const productos = [
     stock: 25,
     description: "Pan francés tipo mignon",
     category: "salado",
-    img: "../public/panfrancés.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142071/Panader%C3%ADa%20S%C3%A1nchez/panfranc%C3%A9s_lqecx1.jpg",
   },
   {
     id: 11,
@@ -98,7 +98,7 @@ export const productos = [
     stock: 14,
     description: "Disponible solo durante Pascuas",
     category: "especialidad",
-    img: "../public/rosca-pascua.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142072/Panader%C3%ADa%20S%C3%A1nchez/rosca-pascua_oldshe.jpg",
   },
   {
     id: 12,
@@ -107,7 +107,7 @@ export const productos = [
     stock: 26,
     description: "Disponible solo durante el mes de diciembre",
     category: "especialidad",
-    img: "../public/pandulce.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142072/Panader%C3%ADa%20S%C3%A1nchez/pandulce_gkdrjv.jpg",
   },
   {
     id: 13,
@@ -116,6 +116,6 @@ export const productos = [
     stock: 23,
     description: "Disponible solo durante el mes de diciembre",
     category: "especialidad",
-    img: "../public/panmiga.jpg",
+    img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142072/Panader%C3%ADa%20S%C3%A1nchez/panmiga_dyjsn9.jpg",
   },
 ];

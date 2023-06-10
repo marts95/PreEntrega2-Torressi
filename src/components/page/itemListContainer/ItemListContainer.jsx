@@ -1,21 +1,24 @@
-//import { productos } from "../../../productsMock";
-import "./ItemListContainer.css"
-import { useState, useEffect } from "react";
+import { productos } from "../../../productsMock";
+import "./ItemList.css";
+import { useEffect, useState } from "react";
+import { ItemListPresentacional } from "./ItemListPresentacional";
 
 export const ItemListContainer = () => {
-  
-const [contador, setContador] = useState(0)
+  const [items, setItems] = useState([]);
 
-console.log("El componente se actualiza")
+  useEffect(() => {
+    const tarea = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(productos);
+      }, 1000);
+    });
 
-useEffect( () => {
-  console.log("Se hace la petición a la API")
-}, [])
+    tarea
+      .then((respuesta) => setItems(respuesta))
+      .catch((error) => {
+        console.log("catch:", error);
+      });
+  }, []);
 
-return (
-  <>
-  <h1>Acá van los productos</h1>
-  <button onClick={()=> setContador(contador + 1)}>Sumar</button>
-  </>
-)
+  return <ItemListPresentacional items={items} />;
 };

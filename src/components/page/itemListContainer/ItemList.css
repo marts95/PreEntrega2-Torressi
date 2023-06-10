@@ -1,4 +1,4 @@
-.titulo{
+/* .titulo{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,4 +7,13 @@
     color: #3d3d3d;
     background-color: #ffffff; 
     height: 70vh;
+} */
+.tarjetitas{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding-block: 3rem;
 }

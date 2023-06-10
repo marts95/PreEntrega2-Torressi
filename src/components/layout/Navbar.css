@@ -7,8 +7,9 @@
     background-color: #3d3d3d;
     width: 100vw;
     height: 6rem;
-    padding-inline: 3rem;
-    font-size: 40px;
+    padding-left: 1rem;
+    padding-right: 3rem;
+    font-size: 30px;
 }
 .logo{
     font-size: 20px;
