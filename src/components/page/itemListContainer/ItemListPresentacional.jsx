@@ -5,7 +5,7 @@ export const ItemListPresentacional = ({ items }) => {
   return (
     <div className="tarjetitas">
       {items.map((elemento) => {
-        return <ProductCard className="tarj-individual" key={elemento.id} elemento={elemento} />;
+        return <ProductCard key={elemento.id} elemento={elemento} />;
       })}
     </div>
   );
