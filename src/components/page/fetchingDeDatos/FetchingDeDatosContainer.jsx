@@ -1,35 +1,43 @@
 import { useEffect, useState } from "react";
-import { sanchezInstance } from "../../../api/axiosInstance";
-import { FetchingDeDatosPresentacional } from "./FetchingDeDatosPresentacional";
+import { FetchingDeDatosPresentacional } from "./FetchingDeDatosPresentacional.jsx";
 
 export const FetchingDeDatosContainer = () => {
-  const [productos, setProductos] = useState([]);
+  const [usuarios, setUsuarios] = useState([]);
+
+  console.log(usuarios);
 
   useEffect(() => {
-    const productosData = sanchezInstance.get();
+    const usuariosData = fetch("https://jsonplaceholder.typicode.com/users");
 
-    productosData.then((respuesta) => {
-      setProductos(respuesta.data);
-    });
+    usuariosData
+      .then((respuesta) => {
+        return respuesta.json();
+      })
+      .then((info) => setUsuarios(info))
+      .catch((error) => {
+        console.log("este es el error:", error);
+      });
   }, []);
-
-  useEffect(() => {
-    const getProducto = sanchezInstance.get("/10");
-
-    getProducto.then((res) => console.log(res.data));
-  }, []);
-
-  const crearProducto = () => {
-    let data = {
-      title: "Palitos",
-      price: 1500,
-      stock: 5,
-      description: "Bañados en chocolate de leche",
-      category: "dulce",
-      img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142071/Panader%C3%ADa%20S%C3%A1nchez/palitoschocolate_gepktt.jpg",
+  const crearUsuarios = () => {
+    let info = {
+      name: "Marianella",
+      userName: "mt95",
+      email: "mart95@gmail.com",
     };
-    sanchezInstance.post("", data);
-  };
 
-  return <FetchingDeDatosPresentacional productos={productos} crearProducto={crearProducto}/>;
+    const promise = fetch("https://jsonplaceholder.typicode.com/users", {
+      method: "POST",
+      body: JSON.stringify(info),
+    });
+
+    promise.then(res => res.json()).then((res) => console.log(res));
+  };
+  
+
+  return (
+    <FetchingDeDatosPresentacional
+      usuarios={usuarios}
+      crearUsuarios={crearUsuarios}
+    />
+  );
 };
