@@ -1,43 +1,35 @@
 import { useEffect, useState } from "react";
-import { FetchingDeDatosPresentacional } from "./FetchingDeDatosPresentacional.jsx";
+import { sanchezInstance } from "../../../api/axiosInstance";
+import { FetchingDeDatosPresentacional } from "./FetchingDeDatosPresentacional";
 
 export const FetchingDeDatosContainer = () => {
-  const [usuarios, setUsuarios] = useState([]);
-
-  console.log(usuarios);
+  const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    const usuariosData = fetch("https://jsonplaceholder.typicode.com/users");
+    const productosData = sanchezInstance.get();
 
-    usuariosData
-      .then((respuesta) => {
-        return respuesta.json();
-      })
-      .then((info) => setUsuarios(info))
-      .catch((error) => {
-        console.log("este es el error:", error);
-      });
-  }, []);
-  const crearUsuarios = () => {
-    let info = {
-      name: "Marianella",
-      userName: "mt95",
-      email: "mart95@gmail.com",
-    };
-
-    const promise = fetch("https://jsonplaceholder.typicode.com/users", {
-      method: "POST",
-      body: JSON.stringify(info),
+    productosData.then((respuesta) => {
+      setProductos(respuesta.data);
     });
+  }, []);
 
-    promise.then(res => res.json()).then((res) => console.log(res));
+  useEffect(() => {
+    const getProducto = sanchezInstance.get("/10");
+
+    getProducto.then((res) => console.log(res.data));
+  }, []);
+
+  const crearProducto = () => {
+    let data = {
+      title: "Palitos",
+      price: 1500,
+      stock: 5,
+      description: "Bañados en chocolate de leche",
+      category: "dulce",
+      img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142071/Panader%C3%ADa%20S%C3%A1nchez/palitoschocolate_gepktt.jpg",
+    };
+    sanchezInstance.post("", data);
   };
-  
 
-  return (
-    <FetchingDeDatosPresentacional
-      usuarios={usuarios}
-      crearUsuarios={crearUsuarios}
-    />
-  );
+  return <FetchingDeDatosPresentacional productos={productos} crearProducto={crearProducto}/>;
 };

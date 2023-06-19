@@ -1,16 +1,15 @@
-export const FetchingDeDatosPresentacional = ({ usuarios, crearUsuarios }) => {
+export const FetchingDeDatosPresentacional = ({ productos, crearProducto }) => {
   return (
     <div className="listita">
-      {usuarios.map((usuario) => {
+      {productos.map((producto) => {
         return (
-          <div key={usuario.id}>
-            <h2>{usuario.name}</h2>
-            <h3 style={{paddingLeft: "2rem"}}>{usuario.email}</h3>
+          <div key={producto.id}>
+            <h2>{producto.title}</h2>
+            <h3 style={{ paddingLeft: "2rem" }}>{producto.price}</h3>
           </div>
         );
       })}
-
-      <button onClick={crearUsuarios}>Crear usuarios</button>
+      <button onClick={crearProducto}>Crear producto</button>
     </div>
   );
 };
