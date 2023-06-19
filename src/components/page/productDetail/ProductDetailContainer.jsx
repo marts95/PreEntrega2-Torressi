@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import ProductDetailPresentacional from "./ProductDetailPresentacional";
+import { ProductDetail } from "./ProductDetail.jsx";
 import "./productDetail.css";
 import { productos } from "../../../productsMock";
 
-export default function ProductDetailContainer() {
+export const ProductDetailContainer = () => {
   const [productoSeleccionado, setProductoSeleccionado] = useState({});
 
-  let id = 2;
+  let id = 9;
 
   useEffect(() => {
     let productoFind = productos.find((producto) => producto.id === id);
@@ -15,9 +15,11 @@ export default function ProductDetailContainer() {
       resolve(productoFind);
     });
 
-    getProducto.then((res) => setProductoSeleccionado(res));
+    getProducto
+      .then((res) => setProductoSeleccionado(res))
+      .catch((error) => console.log(error));
   }, [id]);
-  console.log(productoSeleccionado)
+  console.log(productoSeleccionado);
 
-  return <ProductDetailPresentacional productoSeleccionado={productoSeleccionado}/>;
-}
+  return <ProductDetail productoSeleccionado={productoSeleccionado} />;
+};

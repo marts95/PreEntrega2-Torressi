@@ -1,0 +1,12 @@
+.contador {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  padding-block: 1rem;
+}
+.todo{
+    display: flex;
+    flex-direction: column;
+    padding-inline: 39rem;
+}

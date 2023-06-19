@@ -10,7 +10,7 @@ export const ItemListContainer = () => {
     const tarea = new Promise((resolve) => {
       setTimeout(() => {
         resolve(productos);
-      }, 1000);
+      }, 0);
     });
 
     tarea
