@@ -1,0 +1,50 @@
+.detalle{
+  background-color: #d9d9db;
+  display: flex;
+  justify-content: center;
+  padding-block: 8rem;
+}
+.tarjetaDetalle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  padding-block: 3rem;
+}
+.imagen {
+  max-width: 500px;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border-style: solid;
+  border-color: #c17767;
+  border-right-style: none;
+}
+.informacion {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding-inline: 2rem;
+  margin-right: 3rem;
+  background-color: #3d3d3d;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  border-style: solid;
+  border-color: #c17767;
+  border-left-style: none;
+}
+.informacion h1 {
+  color: #c17760;
+  font-size: 45px;
+}
+.informacion h3 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 100;
+}
+.informacion h2 {
+  color: #ffffff;
+  font-weight: 400;
+}

@@ -1,7 +1,7 @@
 import "./Counter.css";
-import { useCount } from "../../../hooks/useCount";
+import { useCount } from "../../hooks/useCount";
 
-export const ItemCount = ({stock, inicial, onAdd}) => {
+export const ItemCount = ({ stock, inicial, onAdd }) => {
   const { count, decremento, incremento } = useCount(inicial, stock);
 
   return (
@@ -11,7 +11,7 @@ export const ItemCount = ({stock, inicial, onAdd}) => {
         <span>{count}</span>
         <button onClick={incremento}>+</button>
       </div>
-      <button onClick={()=> onAdd(count)}>Agregar al carrtio</button>
+      <button onClick={() => onAdd(count)}>Agregar al carrito</button>
     </div>
   );
 };

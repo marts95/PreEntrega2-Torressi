@@ -3,10 +3,28 @@
   flex-direction: row;
   justify-content: center;
   gap: 1rem;
-  padding-block: 1rem;
 }
-.todo{
-    display: flex;
-    flex-direction: column;
-    padding-inline: 39rem;
+.todo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+button {
+  background-color: #c17767;
+  color: #ffffff;
+  border-radius: 8px;
+  border-color:transparent;
+  border-width: 1px;
+  padding-block: 0.22rem;
+  padding-inline: 0.4rem;  
+  font-size: 18px;
+  font-weight: 600;
+  cursor: grab;
+  transition: background-color 0.5s, color 0.5s;
+}
+span{
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
 }

@@ -1,10 +1,8 @@
-import { useFetch } from "../../hooks/useFetch";
+import { useFetch } from "../hooks/useFetch";
 
 export const Posts = () => {
-   const [posteos] = useFetch([], "https://jsonplaceholder.typicode.com/posts");
-   console.log(posteos)
+  const [posteos] = useFetch([], "https://jsonplaceholder.typicode.com/posts");
+  console.log(posteos);
 
-  return (
-    <div>Posts</div>
-  )
-}
+  return <div>Posts</div>;
+};

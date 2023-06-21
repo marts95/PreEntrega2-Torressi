@@ -1,0 +1,22 @@
+.encontrar {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.encontrar p {
+  color: red;
+  font-size: 50px;
+  font-weight: bolder;
+}
+.encontrar button{
+    background-color: red;
+    padding: 1rem;
+    font-weight: bolder;
+}
+.gato{
+    height:60vh;
+}

@@ -29,7 +29,7 @@ export const productos = [
   },
   {
     id: 4,
-    title: "Cupckaes",
+    title: "Cupcakes",
     price: 2500,
     stock: 8,
     description: "Con y sin baño de chocoloate negro",

@@ -5,8 +5,9 @@
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
-    padding-block: 3rem;
-    padding-inline: 2rem;
+    padding-block: 2rem;
+    padding-inline: 1rem;
+    background-color: #d9d9db;
 }
 .tarj-individual{
     background-color: #3d3d3d;
