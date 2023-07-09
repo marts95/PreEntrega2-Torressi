@@ -1,13 +1,13 @@
 import "./itemDetail.css";
 import { ItemCount } from "../../common/counter/ItemCount.jsx";
 
-export const ItemDetail = ({ productoSeleccionado }) => {
+export const ItemDetail = ({ productoSeleccionado, agregarAlCarrito, cantidad }) => {
   const onAdd = (cantidad) => {
     let info = {
       ...productoSeleccionado,
       quantity: cantidad,
     };
-    console.log(info);
+    agregarAlCarrito(info)
   };
 
   return (
@@ -21,7 +21,7 @@ export const ItemDetail = ({ productoSeleccionado }) => {
           <h3>{productoSeleccionado.description}</h3>
           <h2>$ {productoSeleccionado.price}</h2>
           <ItemCount
-            inicial={1}
+            inicial={cantidad}
             stock={productoSeleccionado.stock}
             onAdd={onAdd}
           />

@@ -1,7 +1,7 @@
 import "./Counter.css";
 import { useCount } from "../../hooks/useCount";
 
-export const ItemCount = ({ stock, inicial, onAdd }) => {
+export const ItemCount = ({ stock, inicial=1, onAdd }) => {
   const { count, decremento, incremento } = useCount(inicial, stock);
 
   return (

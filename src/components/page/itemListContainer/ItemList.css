@@ -1,5 +1,6 @@
 .tarjetitas{
     width: 100%;
+    min-height: 45rem;
     display: flex;
     justify-content: center;
     align-items: center;

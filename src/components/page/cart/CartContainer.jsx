@@ -1,17 +1,24 @@
+import { CartContext } from "../../../context/CartContext";
 import "./Cart.css";
+import { useContext } from "react";
 
 export const CartContainer = () => {
-  const comprar = () => {
-    console.log("Su compra fue exitosa");
-  };
+  const { carrito, vaciarCarrito, eliminarPorId } = useContext(CartContext);
+
 
   return (
     <div className="carrito">
-      <h1>Carrito</h1>
-      <h2>Aquí van las cards de los elementos añadidos</h2>
-      <button className="comprar" onClick={comprar}>
-        Comprar
-      </button>
+      <button onClick={vaciarCarrito}>Vaciar carrito</button>
+      {carrito.map((producto) => {
+        return (
+          <div key={producto.id}>
+            <h2>{producto.title}</h2>
+            <h2>{producto.price}</h2>
+            <h2>{producto.quantity}</h2>
+            <button onClick={()=>eliminarPorId(producto.id)}>Eliminar</button>
+          </div>
+        );
+      })}
     </div>
   );
 };
