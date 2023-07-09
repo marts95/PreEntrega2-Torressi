@@ -1,5 +1,6 @@
 import { Form } from "../components/page/Form/Form"
 import { CartContainer } from "../components/page/cart/CartContainer"
+import { FormFormik } from "../components/page/formFormik/FormFormik";
 import { ItemDetailContainer } from "../components/page/itemDetail/ItemDetailContainer"
 import { ItemListContainer } from "../components/page/itemListContainer/ItemListContainer"
 
@@ -29,5 +30,10 @@ import { ItemListContainer } from "../components/page/itemListContainer/ItemList
      id: "formulario",
      path: "/form",
      Element: Form,
+   },
+   {
+     id: "formik",
+     path: "/formik",
+     Element: FormFormik,
    },
  ];
