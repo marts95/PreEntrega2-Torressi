@@ -22,7 +22,7 @@ export const productos = [
     id: 3,
     title: " Alfajores",
     price: 1500,
-    stock: 25,
+    stock: 0,
     description: "Alfajores de dulce de leche tipo marplatenses y de maicena",
     category: "dulce",
     img: "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142068/Panader%C3%ADa%20S%C3%A1nchez/alfajorescuadrado_zbc1bj.jpg",

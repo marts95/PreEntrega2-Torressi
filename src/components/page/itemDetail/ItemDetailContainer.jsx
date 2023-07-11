@@ -4,22 +4,40 @@ import "./itemDetail.css";
 import { productos } from "../../../productsMock.js";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext.jsx";
+import { SyncLoader } from "react-spinners";
+import Swal from "sweetalert2";
 
 export const ItemDetailContainer = () => {
   const [productoSeleccionado, setProductoSeleccionado] = useState({});
 
-  const {agregarAlCarrito, obtenerCantidadPorId} = useContext(CartContext)
+  const { agregarAlCarrito, obtenerCantidadPorId } = useContext(CartContext);
 
   const { id } = useParams();
 
-  const cantidad = obtenerCantidadPorId(+id)
+  const cantidad = obtenerCantidadPorId(+id);
 
+  const onAdd = (cantidad) => {
+    let info = {
+      ...productoSeleccionado,
+      quantity: cantidad,
+    };
+    agregarAlCarrito(info);
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "¡Producto agregado!",
+      showConfirmButton: true,
+      timer: 1000,
+    });
+  };
 
   useEffect(() => {
     let productoFind = productos.find((producto) => producto.id === Number(id));
 
     const getProducto = new Promise((resolve) => {
-      resolve(productoFind);
+      setTimeout(() => {
+        resolve(productoFind);
+      }, 500);
     });
 
     getProducto
@@ -27,5 +45,25 @@ export const ItemDetailContainer = () => {
       .catch((error) => console.log(error));
   }, [id]);
 
-  return <ItemDetail productoSeleccionado={productoSeleccionado} agregarAlCarrito={agregarAlCarrito} cantidad={cantidad}/>;
+  return (
+    <div>
+      {productoSeleccionado.price ? (
+        <ItemDetail
+          productoSeleccionado={productoSeleccionado}
+          cantidad={cantidad}
+          onAdd={onAdd}
+        />
+      ) : (
+        <SyncLoader
+          style={{
+            paddingBlock: "21rem",
+            display: "flex",
+            justifyContent: "center",
+          }}
+          size="40px"
+          color="#c17767"
+        />
+      )}
+    </div>
+  );
 };
