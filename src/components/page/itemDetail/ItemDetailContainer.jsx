@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail.jsx";
 import "./itemDetail.css";
-import { productos } from "../../../productsMock.js";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext.jsx";
 import { SyncLoader } from "react-spinners";
 import Swal from "sweetalert2";
+import { dataBase } from "../../../firebaseConfig.js";
+import { collection, getDoc, doc } from "firebase/firestore";
 
 export const ItemDetailContainer = () => {
   const [productoSeleccionado, setProductoSeleccionado] = useState({});
@@ -32,17 +33,11 @@ export const ItemDetailContainer = () => {
   };
 
   useEffect(() => {
-    let productoFind = productos.find((producto) => producto.id === Number(id));
-
-    const getProducto = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(productoFind);
-      }, 500);
+    let itemsColeccion = collection(dataBase, "productos");
+    let refDoc = doc(itemsColeccion, id);
+    getDoc(refDoc).then((respuesta) => {
+      setProductoSeleccionado({ id: respuesta.id, ...respuesta.data() });
     });
-
-    getProducto
-      .then((res) => setProductoSeleccionado(res))
-      .catch((error) => console.log(error));
   }, [id]);
 
   return (

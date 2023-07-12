@@ -1,0 +1,13 @@
+.contacto {
+  display: flex;
+  flex-direction: row;
+  background-color: #d9d9d9;
+}
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 1rem;
+  width: 50vw;
+  padding-inline: 1.5rem;
+}

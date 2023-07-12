@@ -3,6 +3,7 @@ import { CartContext } from "../../../context/CartContext";
 import "./Cart.css";
 import { useContext } from "react";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 export const CartContainer = () => {
   const { carrito, vaciarCarrito, eliminarPorId, obtenerTotalCompra } =
@@ -58,6 +59,20 @@ export const CartContainer = () => {
           >
             Vaciar carrito
           </Button>
+          <Link to="/checkout">
+            <Button
+              style={{
+                backgroundColor: "#c17767",
+                color: "#ffffff",
+                borderRadius: "8px",
+                borderColor: "transparent",
+                cursor: "grab",
+                transition: "background-color 0.5s, color 0.5s",
+              }}
+            >
+              Finalizar compra
+            </Button>
+          </Link>
           <h2>El total del carrito es: {totalCompra}</h2>
         </div>
       )}

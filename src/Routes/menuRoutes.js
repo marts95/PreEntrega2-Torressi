@@ -1,6 +1,7 @@
-import { Form } from "../components/page/Form/Form"
 import { CartContainer } from "../components/page/cart/CartContainer"
-import { FormFormik } from "../components/page/formFormik/FormFormik";
+import { CheckoutContainer } from "../components/page/checkout/CheckoutContainer";
+import { ContactoContainer } from "../components/page/contacto/ContactoContainer";
+import { Inicio } from "../components/page/inicio/Inicio";
 import { ItemDetailContainer } from "../components/page/itemDetail/ItemDetailContainer"
 import { ItemListContainer } from "../components/page/itemListContainer/ItemListContainer"
 
@@ -9,7 +10,17 @@ import { ItemListContainer } from "../components/page/itemListContainer/ItemList
    {
      id: "inicio",
      path: "/",
+     Element: Inicio,
+   },
+   {
+     id: "productos",
+     path: "/productos",
      Element: ItemListContainer,
+   },
+   {
+     id: "contacto",
+     path: "/contacto",
+     Element: ContactoContainer,
    },
    {
      id: "detalle",
@@ -27,13 +38,9 @@ import { ItemListContainer } from "../components/page/itemListContainer/ItemList
      Element: CartContainer,
    },
    {
-     id: "formulario",
-     path: "/form",
-     Element: Form,
+     id: "checkout",
+     path: "/checkout",
+     Element: CheckoutContainer,
    },
-   {
-     id: "formik",
-     path: "/formik",
-     Element: FormFormik,
-   },
+   
  ];

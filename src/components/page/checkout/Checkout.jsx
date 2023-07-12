@@ -1,40 +1,10 @@
-import "./FormFormik.css";
 import { Button, TextField } from "@mui/material";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import "./checkout.css"
 
-export const FormFormik = () => {
-  const { handleSubmit, handleChange, errors } = useFormik({
-    initialValues: {
-      nombre: "",
-      apellido: "",
-      email: "",
-      telefono: "",
-    },
-    onSubmit: (datos) => {
-      console.log("el formulario se envio");
-      console.log(datos);
-    },
-    validateOnChange: false,
-    validationSchema: Yup.object({
-      nombre: Yup.string()
-        .required("Este dato es obligatorio")
-        .min(3, "El nombre debe tener como mínimo 3 caracteres"),
-      apellido: Yup.string()
-        .required("Este dato es obligatorio")
-        .min(3, "El apellido debe tener como mínimo 3 caracteres"),
-      email: Yup.string()
-        .required("Este dato es obligatorio")
-        .email("El email no es válido"),
-      telefono: Yup.number()
-        .required("Este dato es obligatorio")
-        .min(10, "El formato de telefono es cod. de área + numero sin 15"),
-    }),
-  });
-
+export const Checkout = ({handleSubmit, handleChange, errors}) => {
   return (
     <div style={{ padding: "10rem" }}>
-      <form onSubmit={handleSubmit}>
+      <form className="formulario" onSubmit={handleSubmit}>
         <TextField
           label="Nombre"
           variant="outlined"
@@ -68,7 +38,18 @@ export const FormFormik = () => {
           error={errors.telefono ? true : false}
           helperText={errors.telefono}
         />
-        <Button type="submit" variant="contained">
+        <Button
+          style={{
+            backgroundColor: "#c17767",
+            color: "#ffffff",
+            borderRadius: "8px",
+            borderColor: "transparent",
+            cursor: "grab",
+            transition: "background-color 0.5s, color 0.5s",
+          }}
+          type="submit"
+          variant="contained"
+        >
           Enviar
         </Button>
       </form>

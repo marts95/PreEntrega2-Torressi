@@ -1,15 +1,33 @@
-.tarjetitas{
-    width: 100%;
-    min-height: 45rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    padding-block: 2rem;
-    padding-inline: 1rem;
-    background-color: #d9d9db;
+.tarjetitas {
+  width: 100%;
+  min-height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-block: 2rem;
+  padding-inline: 1rem;
+  background-color: #d9d9db;
 }
-.tarj-individual{
-    background-color: #3d3d3d;
+.tarj-individual {
+  background-color: #3d3d3d;
+}
+.categorias {
+  display: flex;
+  justify-content: center;
+  background-color: #3d3d3d;
+  width: 100vw;
+  height: 3rem;
+}
+.lista-cat {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  font-size: 20px;
+  width: 50vw;
+  gap: 3rem;
+  list-style: none;
+  
 }

@@ -19,7 +19,7 @@ export const CartContextProvider = ({ children }) => {
         }
       });
       setCarrito(agregar);
-      localStorage.setItem("carrito", JSON.stringify(agregar))
+      localStorage.setItem("carrito", JSON.stringify(agregar));
     } else {
       setCarrito([...carrito, nuevoProducto]);
       localStorage.setItem(
@@ -42,7 +42,11 @@ export const CartContextProvider = ({ children }) => {
   const eliminarPorId = (id) => {
     let eliminar = carrito.filter((producto) => producto.id !== id);
     setCarrito(eliminar);
-    localStorage.setItem("carrito", JSON.stringify(eliminar))
+    if (carrito.length === 1){
+      localStorage.removeItem("carrito");
+    }else{
+      localStorage.setItem("carrito", JSON.stringify(eliminar));
+    }
   };
 
   const obtenerCantidadPorId = (id) => {
@@ -61,7 +65,7 @@ export const CartContextProvider = ({ children }) => {
     let total = carrito.reduce((acc, elemento) => {
       return acc + elemento.quantity * elemento.price;
     }, 0);
-    return total
+    return total;
   };
 
   let data = {

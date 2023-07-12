@@ -1,0 +1,16 @@
+.inicio{
+    display: flex;
+    background-color: #d9d9db;
+    padding: 1rem;
+}
+.cajaDerecha{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: first baseline;
+    padding: 2rem;
+    gap: 1rem;
+}
+p{
+    text-align: justify;
+}
