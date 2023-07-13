@@ -1,6 +1,7 @@
 import { CartContainer } from "../components/page/cart/CartContainer"
 import { CheckoutContainer } from "../components/page/checkout/CheckoutContainer";
 import { ContactoContainer } from "../components/page/contacto/ContactoContainer";
+import { FirebaseAuth } from "../components/page/firebaseAuth/FirebaseAuth";
 import { Inicio } from "../components/page/inicio/Inicio";
 import { ItemDetailContainer } from "../components/page/itemDetail/ItemDetailContainer"
 import { ItemListContainer } from "../components/page/itemListContainer/ItemListContainer"
@@ -41,6 +42,12 @@ import { ItemListContainer } from "../components/page/itemListContainer/ItemList
      id: "checkout",
      path: "/checkout",
      Element: CheckoutContainer,
+   },
+   
+   {
+     id: "firebase-auth",
+     path: "/firebase-auth",
+     Element: FirebaseAuth,
    },
    
  ];
