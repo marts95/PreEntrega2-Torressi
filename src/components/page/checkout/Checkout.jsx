@@ -3,11 +3,11 @@ import "./checkout.css"
 
 export const Checkout = ({handleSubmit, handleChange, errors}) => {
   return (
-    <div style={{ padding: "10rem" }}>
+    <div className="checkout" style={{ padding: "10rem" }}>
       <form className="formulario" onSubmit={handleSubmit}>
         <TextField
           label="Nombre"
-          variant="outlined"
+          variant="filled"
           name="nombre"
           onChange={handleChange}
           error={errors.nombre ? true : false}
@@ -15,16 +15,15 @@ export const Checkout = ({handleSubmit, handleChange, errors}) => {
         />
         <TextField
           label="Apellido"
-          variant="outlined"
+          variant="filled"
           name="apellido"
           onChange={handleChange}
           error={errors.apellido ? true : false}
           helperText={errors.apellido}
         />
-        <span>{errors.nombre}</span>
         <TextField
           label="Email"
-          variant="outlined"
+          variant="filled"
           name="email"
           onChange={handleChange}
           error={errors.email ? true : false}
@@ -32,7 +31,7 @@ export const Checkout = ({handleSubmit, handleChange, errors}) => {
         />
         <TextField
           label="Telefono"
-          variant="outlined"
+          variant="filled"
           name="telefono"
           onChange={handleChange}
           error={errors.telefono ? true : false}
@@ -50,7 +49,7 @@ export const Checkout = ({handleSubmit, handleChange, errors}) => {
           type="submit"
           variant="contained"
         >
-          Enviar
+          Comprar
         </Button>
       </form>
     </div>

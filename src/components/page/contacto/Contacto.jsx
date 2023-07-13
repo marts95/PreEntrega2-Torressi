@@ -5,10 +5,10 @@ export const Contacto = ({ handleSubmit, handleChange, errors }) => {
     <div className="contacto">
       <img
         src={
-          "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142070/Panader%C3%ADa%20S%C3%A1nchez/Imagen_inicio2_kqeecn.jpg"
+          "https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142072/Panader%C3%ADa%20S%C3%A1nchez/tortas_rqv2aj.jpg"
         }
         style={{
-          width: "60vw",
+          width: "100vh",
           height: "100%",
           display: "flex",
           justifyContent: "center",
@@ -16,6 +16,7 @@ export const Contacto = ({ handleSubmit, handleChange, errors }) => {
         }}
       ></img>
       <form className="formulario" onSubmit={handleSubmit}>
+        <h1 style={{textAlign: "center", paddingBottom: "2rem"}}>¡Si tienes alguna duda no dudes en contactarte con nosotros!</h1>
         <TextField
           label="Nombre"
           variant="filled"

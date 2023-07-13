@@ -15,7 +15,7 @@ export const ItemDetailContainer = () => {
 
   const { id } = useParams();
 
-  const cantidad = obtenerCantidadPorId(+id);
+  const cantidad = obtenerCantidadPorId(id);
 
   const onAdd = (cantidad) => {
     let info = {

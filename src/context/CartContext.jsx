@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
-  const [carrito, setCarrito] = useState(localStorage.getItem("carrito") || []);
+  const [carrito, setCarrito] = useState(JSON.parse(localStorage.getItem("carrito")) || []);
 
   const agregarAlCarrito = (nuevoProducto) => {
     let existe = contenidoCarrito(nuevoProducto.id);

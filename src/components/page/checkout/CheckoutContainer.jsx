@@ -2,8 +2,17 @@ import { Checkout } from "./Checkout";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./checkout.css";
+import { dataBase } from "../../../firebaseConfig";
+import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
+import { useContext, useState } from "react";
+import { CartContext } from "../../../context/CartContext";
 
 export const CheckoutContainer = () => {
+  const { carrito, obtenerTotalCompra, vaciarCarrito } =
+    useContext(CartContext);
+  const [idOrden, setIdOrden] = useState(null);
+  let total = obtenerTotalCompra();
+
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       nombre: "",
@@ -11,10 +20,29 @@ export const CheckoutContainer = () => {
       email: "",
       telefono: "",
     },
+
     onSubmit: (datos) => {
-      console.log("el formulario se envio");
-      console.log(datos);
+      let orden = {
+        buyer: datos,
+        items: carrito,
+        total: total,
+      };
+
+      let ordenesColeccion = collection(dataBase, "ordenes");
+
+      addDoc(ordenesColeccion, orden).then((respuesta) =>
+        setIdOrden(respuesta.id)
+      );
+
+      carrito.forEach((producto) => {
+        updateDoc(doc(dataBase, "productos", producto.id), {
+          stock: producto.stock - producto.quantity,
+        });
+      });
+
+      vaciarCarrito();
     },
+
     validateOnChange: false,
     validationSchema: Yup.object({
       nombre: Yup.string()
@@ -26,16 +54,25 @@ export const CheckoutContainer = () => {
       email: Yup.string()
         .required("Este dato es obligatorio")
         .email("El email no es válido"),
-      telefono: Yup.number("Este campo solo admite números")
+      telefono: Yup.string()
         .min(10, "El formato de telefono es cod. de área + numero sin 15")
         .required("Este dato es obligatorio"),
     }),
   });
   return (
-    <Checkout
-      handleSubmit={handleSubmit}
-      handleChange={handleChange}
-      errors={errors}
-    />
+    <div>
+      {idOrden ? (
+        <div>
+          <h1>¡Su compra se realizó con éxito!</h1>
+          <h2>Su número de orden es: {idOrden}</h2>
+        </div>
+      ) : (
+        <Checkout
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          errors={errors}
+        />
+      )}
+    </div>
   );
 };
