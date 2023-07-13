@@ -2,8 +2,12 @@ import "./contacto.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Contacto } from "./Contacto";
+import { addDoc, collection } from "firebase/firestore";
+import { dataBase } from "../../../firebaseConfig";
+import { useState } from "react";
 
 export const ContactoContainer = () => {
+  const [idContacto, setIdContacto] = useState(null);
   const { handleSubmit, handleChange, errors } = useFormik({
     initialValues: {
       nombre: "",
@@ -13,8 +17,15 @@ export const ContactoContainer = () => {
       mensaje:"",
     },
     onSubmit: (datos) => {
-      console.log("el formulario se envio");
-      console.log(datos);
+      let contacto = {
+        cliente: datos,
+      };
+
+      let contactoColeccion = collection(dataBase, "contacto");
+
+      addDoc(contactoColeccion, contacto).then((respuesta) =>
+        setIdContacto(respuesta.id)
+      );
     },
     validateOnChange: false,
     validationSchema: Yup.object({
@@ -38,10 +49,19 @@ export const ContactoContainer = () => {
   });
 
   return (
-    <Contacto
-      handleSubmit={handleSubmit}
-      handleChange={handleChange}
-      errors={errors}
-    />
+    <div>
+      {idContacto ? (
+        <div>
+          <h1>¡Tu mensaje fue enviado!</h1>
+          <h2>Nos contactaremos a la brevedad</h2>
+        </div>
+      ) : (
+        <Contacto
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          errors={errors}
+        />
+      )}
+    </div>
   );
 };
