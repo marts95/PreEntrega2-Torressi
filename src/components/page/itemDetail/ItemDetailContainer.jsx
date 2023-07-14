@@ -25,10 +25,11 @@ export const ItemDetailContainer = () => {
     agregarAlCarrito(info);
     Swal.fire({
       position: "top-end",
-      icon: "success",
+      imageUrl:
+        "https://res.cloudinary.com/dp8auiwtw/image/upload/c_scale,w_180/v1689346147/Panader%C3%ADa%20S%C3%A1nchez/7efs_yz9lxp.gif",
       title: "¡Producto agregado!",
       showConfirmButton: true,
-      timer: 1000,
+      timer: 2000,
     });
   };
 

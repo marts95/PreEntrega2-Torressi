@@ -23,9 +23,15 @@ export const CartContainer = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         vaciarCarrito();
-        Swal.fire("¡Carrito vaciado exitosamente!", "", "success");
+        Swal.fire({
+          imageUrl:
+            "https://res.cloudinary.com/dp8auiwtw/image/upload/c_scale,w_180/v1689346147/Panader%C3%ADa%20S%C3%A1nchez/7efs_yz9lxp.gif",
+          title: "¡Producto agregado!",
+          showConfirmButton: true,
+          timer: 2000,
+        });
       } else if (result.isDenied) {
-        Swal.fire("El carrito no se modificó", "", "error");
+        Swal.fire("El carrito no se modificó", "", "warning");
       }
     });
   };
