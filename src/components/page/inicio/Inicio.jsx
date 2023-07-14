@@ -18,8 +18,10 @@ export const Inicio = () => {
           src="https://res.cloudinary.com/dp8auiwtw/image/upload/v1686142070/Panader%C3%ADa%20S%C3%A1nchez/Imagen_inicio1_jwkvph.jpg"
           style={{ width: "100%", borderRadius: "10px" }}
         ></img>
-        <h1 style={{paddingTop: "3rem"}}>Nuestra historia</h1>
-        <p>
+        <h1 style={{ paddingTop: "2rem", fontSize: "55px" }}>
+          Nuestra historia
+        </h1>
+        <p style={{ fontSize: "25px" }}>
           Panadería Sánchez fue fundada en la ciudad de La Banda, Santiago del
           Estero en el año 1955 por Manuel Sánchez Porra. En sus comienzos fue
           administrada por el fundador junto a sus hijos Víctor Manuel Sánchez y
