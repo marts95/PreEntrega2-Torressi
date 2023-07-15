@@ -1,9 +1,11 @@
-import { Button } from "@mui/material";
 import { CartContext } from "../../../context/CartContext";
 import "./Cart.css";
 import { useContext } from "react";
 import Swal from "sweetalert2";
+import { CardCarrito } from "../../common/cardCarrito/CardCarrito";
+import { Summary } from "../../common/summary/Summary";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export const CartContainer = () => {
   const { carrito, vaciarCarrito, eliminarPorId, obtenerTotalCompra } =
@@ -40,58 +42,45 @@ export const CartContainer = () => {
 
   return (
     <div className="carrito">
-      {carrito.length === 0 ? (
-        <h1
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            paddingTop: "10rem",
-          }}
-        >
-          No hay productos agregados al carrito
-        </h1>
-      ) : (
-        <div>
-          <Button
-            style={{
-              backgroundColor: "#c17767",
-              color: "#ffffff",
-              borderRadius: "8px",
-              borderColor: "transparent",
-              cursor: "grab",
-              transition: "background-color 0.5s, color 0.5s",
-            }}
-            onClick={limpiar}
-          >
-            Vaciar carrito
-          </Button>
-          <Link to="/checkout">
-            <Button
-              style={{
-                backgroundColor: "#c17767",
-                color: "#ffffff",
-                borderRadius: "8px",
-                borderColor: "transparent",
-                cursor: "grab",
-                transition: "background-color 0.5s, color 0.5s",
-              }}
-            >
-              Finalizar compra
-            </Button>
-          </Link>
-          <h2>El total del carrito es: {totalCompra}</h2>
-        </div>
-      )}
-      {carrito.map((producto) => {
-        return (
-          <div key={producto.id}>
-            <h2>{producto.title}</h2>
-            <h2>{producto.price}</h2>
-            <h2>{producto.quantity}</h2>
-            <button onClick={() => eliminarPorId(producto.id)}>Eliminar</button>
+      <div>
+        {carrito.map((producto) => {
+          return (
+            <CardCarrito
+              key={producto.id}
+              producto={producto}
+              eliminarPorId={eliminarPorId}
+            />
+          );
+        })}
+      </div>
+      <div>
+        {carrito.length === 0 ? (
+          <div className="no-hay-productos">
+            <img src="https://res.cloudinary.com/dp8auiwtw/image/upload/v1689356610/Panader%C3%ADa%20S%C3%A1nchez/264162db570a4614c8fd7dc15c757b8e_w200_odebol.gif"></img>
+            <h1>No hay productos agregados al carrito</h1>
+            <Link to="/productos">
+              <Button
+                style={{
+                  backgroundColor: "#c17767",
+                  color: "#ffffff",
+                  borderRadius: "8px",
+                  borderColor: "transparent",
+                  cursor: "grab",
+                  transition: "background-color 0.5s, color 0.5s",
+                }}
+              >Seguir comprando</Button>
+            </Link>
           </div>
-        );
-      })}
+        ) : (
+          <div>
+            <Summary
+              carrito={carrito}
+              limpiar={limpiar}
+              totalCompra={totalCompra}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
